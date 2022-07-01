@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using System.Net;
-using AzureFunctionSampleDataset.Model;
 using AzureFunctionSampleDataset.Services;
-using Bogus;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Caching.Memory;
