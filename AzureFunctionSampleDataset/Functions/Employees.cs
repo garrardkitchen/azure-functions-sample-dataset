@@ -9,14 +9,12 @@ namespace AzureFunctionSampleDataset.Functions
 {
     public class Employees
     {
-        private readonly ILogger _logger;
-        private readonly IMemoryCache _memoryCache;
+        private readonly ILogger _logger;        
         private readonly EmployeeService _employeeService;
 
         public Employees(ILoggerFactory loggerFactory, IMemoryCache memoryCache, EmployeeService employeeService)
         {
-            _logger = loggerFactory.CreateLogger<Employees>();
-            _memoryCache = memoryCache;
+            _logger = loggerFactory.CreateLogger<Employees>();            
             _employeeService = employeeService;
         }
 
