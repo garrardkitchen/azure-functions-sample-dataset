@@ -24,12 +24,13 @@ namespace AzureFunctionSampleDataset.Functions
         }
 
         [Function("Employees")]
-        public async Task<IEnumerable<Employee>> Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
-            var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+            var response = req.CreateResponse(HttpStatusCode.OK);            
+            var employees = await _employeeService.GetEmployees();
+            await response.WriteAsJsonAsync(employees);
 
-            return await _employeeService.GetEmployees();
+            return response;
         }
     }
 }
